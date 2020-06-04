@@ -154,11 +154,8 @@ def check_bullet_alien_collisions(ai_settings, screen, sb, stats, ship, aliens, 
         bullets.empty()
         ai_settings.increase_speed()
         create_fleet(ai_settings, screen, ship, aliens)
-        # If the entire fleet is destroyed, start a new level.
-        # increase level.
-        stats.level += 1
-        sb.prep_level()
 
+        new_level(sb, stats)
 
     # Get rid of bullets that have disappeared.
     for bullet in bullets.copy():
@@ -167,6 +164,12 @@ def check_bullet_alien_collisions(ai_settings, screen, sb, stats, ship, aliens, 
 
     # Make the most recently drawn screen visible.
     pygame.display.flip()
+
+def new_level(sb, stats):
+    # If the entire fleet is destroyed, start a new level.
+    # increase level.
+    stats.level += 1
+    sb.prep_level()
 
 def check_fleet_edges(ai_settings, aliens):
     """ Respond appropriately if any aliens have reached an edge."""
