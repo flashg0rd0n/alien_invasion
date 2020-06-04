@@ -10,6 +10,9 @@ from pygame.sprite import Group
 
 def run_game():
 
+    #This line has been added to the file
+
+
     # Initialise pygame, settings and create a screen object.
     pygame.init()
     ai_settings = Settings()
